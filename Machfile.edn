@@ -6,15 +6,15 @@
 
  js {summary "Create the \"node_modules\" folder containing Javascript dependencies"
      product "package.json"
-     novelty (or (not (mach.core/file-exists? product))
-                 (mach.core/modified-since product #ref [machfile] ))
+     novelty (fn [] (or (not (mach.core/file-exists? product))
+                       (not (mach.core/modified-since product #ref [machfile]))))
      update! #$ ["yarn" "add" #ref [deps js]]
      clean! #$ ["yarn" "remove" #ref [deps js]]}
 
  clj {summary "Create \"cp\", which contains the classpath of resolved Clojure dependencies"
       product "cp"
-      novelty (or (not (mach.core/file-exists? product))
-                  (mach.core/modified-since product #ref [machfile]))
+      novelty (fn [] (or (not (mach.core/file-exists? product))
+                        (not (mach.core/modified-since product #ref [machfile]))))
       produce (apply mach.core/sh (concat ["boot" "-BP"]
                                           (mapv (fn [[sym v]] (str "-d " sym ":" (or v "RELEASE")))
                                                 #ref [deps clj])
