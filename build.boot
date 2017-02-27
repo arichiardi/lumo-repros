@@ -4,6 +4,8 @@
 (def dependencies '[[org.clojure/clojure "1.9.0-alpha14"]
                     [cljsjs/aws-sdk-js "2.2.41-4"]])
 
+(def js-deps ["aws-sdk"])
+
 (def exclusions '[org.clojure/core.async])
 
 (set-env! :source-paths #{"src"}
@@ -26,15 +28,19 @@
 (deftask dump-cp
   "Dump the classpath require by the self-hosted cljs app"
   []
-  (with-cp
-    :write true
-    :exclusions exclusions
-    :dependencies dependencies))
+  (util/info "Dumping the classpath...\n")
+  (comp
+   (with-cp
+     :write true
+     :exclusions exclusions
+     :dependencies dependencies)
+   (with-pass-thru fs
+     (apply util/dosh (concat ["yarn" "add"] js-deps)))))
 
 (deftask dev
   "Launches the interactive environment"
   [p port PORT int "Set the repl port"]
-  (with-pass-thru fs
-    (util/info "Dumping the classpath...")
-    (util/dosh "mach" "cp")
-    (util/dosh "lumo" "-c" (slurp "cp") "-n" (str (or port 5044)))))
+  (comp
+   (dump-cp)
+   (with-pass-thru fs
+     (util/dosh "lumo" "-c" (slurp "cp") "-n" (str (or port 5044))))))
