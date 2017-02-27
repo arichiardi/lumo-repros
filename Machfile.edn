@@ -7,7 +7,7 @@
  js {summary "Create the \"node_modules\" folder containing Javascript dependencies"
      product "package.json"
      novelty (or (not (mach.core/file-exists? product))
-                 (mach.core/modified-since product #ref [machfile]))
+                 (mach.core/modified-since product #ref [machfile] ))
      update! #$ ["yarn" "add" #ref [deps js]]
      clean! #$ ["yarn" "remove" #ref [deps js]]}
 
