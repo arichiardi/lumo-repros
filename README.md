@@ -1,36 +1,56 @@
-# speed-of-light
+# lumo-repros
 
-## Usage
+FIXME: Write a one-line description of your library/project.
 
-For launching a (lumo) repl, use `boot dev`<img width="24px" height="24px" src="https://github.com/boot-clj/boot-clj.github.io/blob/master/assets/images/logos/boot-logo-3.png" alt="Boot Logo"/>.
+## Overview
 
-The project also uses [mach](https://github.com/juxt/mach) for dumping the classpath when necessary so in theory the repl could be launched with:
+FIXME: Write a paragraph about the library/project and highlight its goals.
 
-    mach cp && lumo -c `cat cp`
+## Setup
+
+Most of the following scripts require [rlwrap](http://utopia.knoware.nl/~hlub/uck/rlwrap/) (on OS X installable via brew).
+
+Build your project once in dev mode with the following script and then open `index.html` in your browser.
+
+    ./scripts/build
+
+To auto build your project in dev mode:
+
+    ./scripts/watch
+
+To start an auto-building Node REPL:
+
+    ./scripts/repl
+
+To get source map support in the Node REPL:
+
+    lein npm install
+    
+To start a browser REPL:
+    
+1. Uncomment the following lines in src/lumo_repros/core.cljs:
+```clojure
+;; (defonce conn
+;;   (repl/connect "http://localhost:9000/repl"))
+```
+2. Run `./scripts/brepl`
+3. Browse to `http://localhost:9000` (you should see `Hello world!` in the web console)
+4. (back to step 3) you should now see the REPL prompt: `cljs.user=>`
+5. You may now evaluate ClojureScript statements in the browser context.
+    
+For more info using the browser as a REPL environment, see
+[this](https://github.com/clojure/clojurescript/wiki/The-REPL-and-Evaluation-Environments#browser-as-evaluation-environment).
+    
+Clean project specific out:
+
+    lein clean
+     
+Build a single release artifact with the following script and then open `index_release.html` in your browser.
+
+    ./scripts/release
 
 ## License
 
-This is free and unencumbered software released into the public domain.
+Copyright © 2016 FIXME
 
-Anyone is free to copy, modify, publish, use, compile, sell, or
-distribute this software, either in source code form or as a compiled
-binary, for any purpose, commercial or non-commercial, and by any
-means.
-
-In jurisdictions that recognize copyright laws, the author or authors
-of this software dedicate any and all copyright interest in the
-software to the public domain. We make this dedication for the benefit
-of the public at large and to the detriment of our heirs and
-successors. We intend this dedication to be an overt act of
-relinquishment in perpetuity of all present and future rights to this
-software under copyright law.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
-
-For more information, please refer to <http://unlicense.org>
+Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
