@@ -5,5 +5,5 @@
                  [org.clojure/clojurescript "1.9.496"]]
   :jvm-opts ^:replace ["-Xmx1g" "-server"]
   :source-paths ["src" "target/classes"]
-  :clean-targets ["out" "release"]
+  :clean-targets ["out" "release" "node_modules"]
   :target-path "target")
