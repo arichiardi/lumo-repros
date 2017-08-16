@@ -2,6 +2,7 @@
 
 (b/build "src"
          {:main 'speed-of-light.core
-          :output-to "target/logpoc/logpoc.js"
+          :output-to "target/speed_of_light.js"
           :optimizations :none
+          :source-map false
           :target :nodejs})
