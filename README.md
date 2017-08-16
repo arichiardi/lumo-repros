@@ -8,6 +8,38 @@ The project also uses [mach](https://github.com/juxt/mach) for dumping the class
 
     mach cp && lumo -c `cat cp`
 
+For compiling and reproducing compilation bugs:
+
+    lumo -c src scripts/lumo_build.cljs
+
+The above produces the following at the moment:
+
+```console
+failed compiling file:out/cljs/core.cljs
+	 (new)
+	 Function.cljs.core.ex_info.cljs$core$IFn$_invoke$arity$3 (NO_SOURCE_FILE <embedded>:1934:200)
+	 (evalmachine.<anonymous>:609:25)
+	 Function.lumo.compiler.compile_file.cljs$core$IFn$_invoke$arity$4 (evalmachine.<anonymous>:616:4)
+	 (Object.lumo$closure$compile_file)
+	 (evalmachine.<anonymous>:1625:21)
+	 (Object.lumo$closure$_compile)
+	 (Object.lumo$closure$compile_from_jar)
+	 (evalmachine.<anonymous>:1660:21)
+	 (Object.lumo$closure$_compile)
+
+should never happen!
+	 (new)
+	 Function.cljs.core.ex_info.cljs$core$IFn$_invoke$arity$3 (NO_SOURCE_FILE <embedded>:1934:200)
+	 Function.cljs.core.ex_info.cljs$core$IFn$_invoke$arity$2 (NO_SOURCE_FILE <embedded>:1934:88)
+	 (Object.lumo$io$slurp)
+	 (Object.lumo$compiler$emit_cached_core)
+	 (evalmachine.<anonymous>:482:28)
+	 Function.lumo.compiler.with_core_cljs.cljs$core$IFn$_invoke$arity$2 (evalmachine.<anonymous>:231:85)
+	 Function.lumo.compiler.compile_file_STAR_.cljs$core$IFn$_invoke$arity$4 (evalmachine.<anonymous>:461:41)
+	 (evalmachine.<anonymous>:586:41)
+	 Function.lumo.compiler.compile_file.cljs$core$IFn$_invoke$arity$4 (evalmachine.<anonymous>:616:4)
+```
+
 ## License
 
 This is free and unencumbered software released into the public domain.

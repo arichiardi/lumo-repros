@@ -1,0 +1,1 @@
+java -cp $(cat cp) clojure.main scripts/node_repl.clj
