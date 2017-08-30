@@ -4,7 +4,14 @@ For compiling and reproducing compilation bugs:
 
     lumo -c src scripts/lumo_build.cljs
 
-If the `util` namespace contains:
+If I have the following structure and `util` namespace:
+
+```
+src
+└── speed_of_light
+    ├── core.cljs
+    └── util.cljs
+```
 
 ```clojure
 (ns speed-of-light.util
