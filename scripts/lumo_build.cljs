@@ -2,7 +2,8 @@
 
 (b/build "src"
          {:main 'speed-of-light.core
-          :output-to "target/speed_of_light.js"
+          :output-to "out/speed_of_light.js"
           :optimizations :none
           :source-map false
-          :target :nodejs})
+          :target :nodejs
+          :verbose true})

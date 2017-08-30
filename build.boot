@@ -1,15 +1,14 @@
 (def project 'speed-of-light)
 (def version "0.1.0-SNAPSHOT")
 
-(def dependencies '[[org.clojure/clojure "1.9.0-alpha14"]
-                    [cljsjs/aws-sdk-js "2.2.41-4"]])
+(def dependencies '[[org.clojure/clojurescript "1.9.908"]
+                    [com.cognitect/transit-clj "0.8.300"]])
 
-(def js-deps ["aws-sdk"])
+(def js-deps [])
 
 (def exclusions '[org.clojure/core.async])
 
-(set-env! :source-paths #{"src"}
-          :dependencies '[[arichiardi/boot-dynamodb "0.1.0-SNAPSHOT" :scope "test"]])
+(set-env! :source-paths #{"src"})
 
 (task-options!
  pom {:project     project
@@ -22,20 +21,23 @@
  with-cp {:safe true
           :file "cp"})
 
-(require '[boot-dynamodb.core :refer [local-dynamodb]]
-         '[boot.util :as util])
+(require '[boot.util :as util])
 
 (deftask dump-cp
   "Dump the classpath require by the self-hosted cljs app"
   []
   (util/info "Dumping the classpath...\n")
   (comp
-   (with-cp
-     :write true
-     :exclusions exclusions
-     :dependencies dependencies)
-   (with-pass-thru fs
-     (apply util/dosh (concat ["yarn" "add"] js-deps)))))
+   (if (seq dependencies)
+     (with-cp
+       :write true
+       :exclusions exclusions
+       :dependencies dependencies)
+     identity)
+   (if (seq js-deps)
+     (with-pass-thru fs
+       (apply util/dosh (concat ["yarn" "add"] js-deps)))
+     identity)))
 
 (deftask dev
   "Launches the interactive environment"

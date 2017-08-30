@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -e
+
+lumo -c src scripts/lumo_build.cljs

@@ -1,6 +1,6 @@
 (ns speed-of-light.core
   "The entry point of this program"
-  (:require [speed-of-light.util]))
+  (:require [speed-of-light.util :as util]))
 
 (enable-console-print!)
 
