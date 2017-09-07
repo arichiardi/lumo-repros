@@ -7,7 +7,7 @@ For compiling and reproducing compilation bugs:
 ## Other unrelated usage (please ignore)
 
 For dumping the classpath use:
-    
+
     boot dump-cp
 
 For launching a (lumo) repl, use `boot dev`<img width="24px" height="24px" src="https://github.com/boot-clj/boot-clj.github.io/blob/master/assets/images/logos/boot-logo-3.png" alt="Boot Logo"/>.
@@ -15,7 +15,7 @@ For launching a (lumo) repl, use `boot dev`<img width="24px" height="24px" src="
 The project also uses [mach](https://github.com/juxt/mach) for dumping the classpath when necessary so in theory the repl could be launched with:
 
     mach cp && lumo -c `cat cp`
-    
+
 ## License
 
 This is free and unencumbered software released into the public domain.

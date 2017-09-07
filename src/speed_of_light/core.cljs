@@ -1,7 +1,7 @@
 (ns speed-of-light.core
   "The entry point of this program"
-  (:require [cljs.core.async :as async :refer [<! >!]]
-            [cljs.core.async.macros :refer-macros [go]]))
+  (:require [cljs.core.async :as async :refer [<! >!]])
+  (:require-macros [cljs.core.async.macros :refer [go go-loop]]))
 
 (enable-console-print!)
 
