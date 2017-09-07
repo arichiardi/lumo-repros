@@ -2,4 +2,6 @@
 
 set -e
 
+boot dump-cp
+
 lumo -c src scripts/lumo_build.cljs
