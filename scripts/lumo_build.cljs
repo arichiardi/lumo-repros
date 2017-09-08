@@ -4,6 +4,6 @@
          {:main 'speed-of-light.core
           :output-to "out/speed_of_light.js"
           :optimizations :none
-          :source-map false
+          :source-map true
           :target :nodejs
           :verbose true})
