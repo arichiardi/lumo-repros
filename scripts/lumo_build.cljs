@@ -1,5 +1,7 @@
 (require '[lumo.build.api :as api])
 
+(enable-console-print!)
+
 (def compiler-opts
   {:main 'speed-of-light.core
    :output-to "out/speed_of_light.js"
@@ -9,10 +11,9 @@
    :verbose true})
 
 (api/build
- (api/inputs "src") ;; variadic
+ "src"
  compiler-opts
- (fn [result]
-   (if-let [err (:error result)]
-     (println (.-stack err))
-     (do (println "Complete!")
-         (println result)))))
+ #(if-let [err (:error %)]
+    (console.log (.-stack %))
+    (do (console.log "Complete!")
+        (console.log %))))

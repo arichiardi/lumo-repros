@@ -4,8 +4,7 @@
 (def dependencies '[[org.clojure/clojure "1.8.0"]
                     [org.clojure/clojurescript "1.9.908"]
                     [org.clojure/tools.reader "1.0.5"]
-                    [com.cognitect/transit-clj "0.8.300"]
-                    [andare "0.7.0"]])
+                    [com.cognitect/transit-clj "0.8.300"]])
 
 (def js-deps [])
 
