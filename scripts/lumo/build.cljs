@@ -8,12 +8,14 @@
    :optimizations :none
    :source-map true
    :target :nodejs
-   :verbose true})
+   :verbose false})
 
 (api/build
  "src"
  compiler-opts
- #(if-let [err (:error %)]
-    (console.log (.-stack %))
-    (do (console.log "Complete!")
-        (console.log %))))
+ #(do
+    (println "\nCompilation Result")
+    (if-let [err (:error %)]
+      (println err)
+      (do (println "Success")
+          (println %)))))

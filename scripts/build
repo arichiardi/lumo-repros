@@ -2,6 +2,11 @@
 
 set -e
 
-boot dump-cp
+# boot dump-cp
+node ~/git/lumo/target/bundle.js -c ~/git/lumo/target:$(cat cp):src scripts/lumo/build.cljs
 
-lumo -c $(cat cp):src scripts/lumo_build.cljs
+# This is ok
+# lumo -c $(cat cp):src:scripts -m lumo.build
+
+# The callback is not called here
+# lumo -c $(cat cp):src scripts/lumo/build.cljs
