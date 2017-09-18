@@ -17,5 +17,4 @@
     (println "\nCompilation Result")
     (if-let [err (:error %)]
       (println err)
-      (do (println "Success")
-          (println %)))))
+      (println "Success (result: " % ")"))))
