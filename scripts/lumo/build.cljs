@@ -8,7 +8,7 @@
    :optimizations :none
    :source-map true
    :target :nodejs
-   :verbose false})
+   :verbose true})
 
 (api/build
  "src"
