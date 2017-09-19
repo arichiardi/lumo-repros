@@ -1,4 +1,5 @@
-(ns speed-of-light.macros)
+(ns speed-of-light.macros
+  #?(:cljs (:require-macros speed-of-light.macros)))
 
 (defmacro safely-apply
   "Read JSON and return it.
