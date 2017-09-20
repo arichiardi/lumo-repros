@@ -11,7 +11,7 @@
    :verbose true})
 
 (api/build
- "src"
+ (api/inputs "src" "test")
  compiler-opts
  #(do
     (println "\nCompilation Result")

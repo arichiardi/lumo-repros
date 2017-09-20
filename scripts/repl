@@ -1,1 +1,1 @@
-java -cp $(cat cp) clojure.main scripts/node_repl.clj
+java -cp src:test:$(cat cp) clojure.main scripts/node_repl.clj

@@ -1,10 +1,9 @@
 (def project 'speed-of-light)
 (def version "0.1.0-SNAPSHOT")
 
-(def dependencies '[[org.clojure/clojure "1.8.0"]
-                    [org.clojure/clojurescript "1.9.908"]
-                    [org.clojure/tools.reader "1.0.5"]
-                    [com.cognitect/transit-clj "0.8.300"]])
+(def dependencies '[[org.clojure/clojure "1.9.0-alpha15"]
+                    [org.clojure/spec.alpha "0.1.123"]
+                    [org.clojure/test.check "0.10.0-alpha2"]])
 
 (def js-deps [])
 

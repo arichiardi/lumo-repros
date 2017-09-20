@@ -1,8 +1,8 @@
 #!/bin/sh
 
-set -ex
+set -e
 
 # boot dump-cp
 # node ~/git/lumo/target/bundle.js -c ~/git/lumo/target:$(cat cp):src scripts/lumo/build.cljs
 
-lumo -c src:test:$(cat cp) scripts/lumo/build.cljs
+lumo -c $(cat cp):src:test test/speed_of_light/core_check.cljs
