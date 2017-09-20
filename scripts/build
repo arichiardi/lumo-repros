@@ -2,7 +2,8 @@
 
 set -ex
 
-# boot dump-cp
-# node ~/git/lumo/target/bundle.js -c ~/git/lumo/target:$(cat cp):src scripts/lumo/build.cljs
+if [ "cp" -ot "build.boot" ]; then
+    boot dump-cp
+fi
 
 lumo -c src:test:$(cat cp) scripts/lumo/build.cljs

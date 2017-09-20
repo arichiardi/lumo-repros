@@ -2,7 +2,8 @@
 
 set -e
 
-# boot dump-cp
-# node ~/git/lumo/target/bundle.js -c ~/git/lumo/target:$(cat cp):src scripts/lumo/build.cljs
+if [ "cp" -ot "build.boot" ]; then
+    boot dump-cp
+fi
 
 lumo -c $(cat cp):src:test test/speed_of_light/core_check.cljs
