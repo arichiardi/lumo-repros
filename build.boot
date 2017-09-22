@@ -2,7 +2,7 @@
 (def version "0.1.0-SNAPSHOT")
 
 (def dependencies '[[org.clojure/clojure "1.9.0-alpha15"]
-                    [org.clojure/spec.alpha "0.1.123"]
+                    ;; [org.clojure/spec.alpha "0.1.123"]
                     [org.clojure/test.check "0.10.0-alpha2"]])
 
 (def js-deps [])
