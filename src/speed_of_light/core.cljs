@@ -1,23 +1,14 @@
 (ns speed-of-light.core
   "The entry point of this program"
-  (:require [clojure.spec.alpha :as s]))
+  (:require [speed-of-light.util]
+            [util :as node-util]))
 
 (enable-console-print!)
 
-(s/fdef ranged-rand
-  :args (s/and (s/cat :start int? :end int?)
-               #(< (:start %) (:end %)))
-  :ret int?
-  :fn (s/and #(>= (:ret %) (-> % :args :start))
-             #(< (:ret %) (-> % :args :end))))
-
-(defn ranged-rand  ;; BROKEN!
-  "Returns random int in range start <= rand < end"
-  [start end]
-  (+ start (long (rand (- start end)))))
-
-(defn ^:export -main
+(defn -main
   [& args]
-  (println (ranged-rand 1 4)))
+  (println "Start!")
+  (println (util/cjs-merge #js {:hello "world"} #js {:world "hello"}))
+  (process.exit 1))
 
-(set! *main-cli-fn* -main)
+(set! *main-cli-fn* `-main)

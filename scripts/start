@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -ex
+
+if [ "cp" -ot "build.boot" ]; then
+    boot dump-cp
+fi
+
+lumo -c src:test:$(cat cp) -m speed-of-light.core

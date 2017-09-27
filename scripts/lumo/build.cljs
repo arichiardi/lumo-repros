@@ -10,11 +10,4 @@
    :target :nodejs
    :verbose true})
 
-(api/build
- (api/inputs "src" "test")
- compiler-opts
- #(do
-    (println "\nCompilation Result")
-    (if-let [err (:error %)]
-      (println err)
-      (println "Success (result: " % ")"))))
+(api/build "src" compiler-opts)
