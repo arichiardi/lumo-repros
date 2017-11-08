@@ -1,14 +1,15 @@
 (ns speed-of-light.core
   "The entry point of this program"
-  (:require [speed-of-light.util]
-            [util :as node-util]))
+  (:require [cljs.spec.test.alpha :as stest]
+            [speed-of-light.util]))
 
 (enable-console-print!)
 
+(stest/instrument)
+
 (defn -main
   [& args]
-  (println "Start!")
-  (println (util/cjs-merge #js {:hello "world"} #js {:world "hello"}))
-  (process.exit 1))
+  (println "Hello world!")
+  (process.exit 0))
 
 (set! *main-cli-fn* `-main)

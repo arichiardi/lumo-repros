@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -ex
+
+lumo -D org.clojure/test.check:0.10.0-alpha2 -c src:test scripts/lumo/build.cljs
