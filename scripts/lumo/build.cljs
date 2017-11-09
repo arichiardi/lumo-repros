@@ -1,6 +1,10 @@
-(require '[lumo.build.api :as api])
+(require '[lumo.build.api :as api]
+         '[lumo.classpath :as cp]
+         '[cljs.pprint :refer [pprint]])
 
 (enable-console-print!)
+
+(pprint (cp/classpath))
 
 (def compiler-opts
   {:main 'speed-of-light.core
