@@ -1,7 +1,6 @@
 (ns speed-of-light.core
   "The entry point of this program"
-  (:require [cljs.spec.test.alpha :as stest]
-            [speed-of-light.util]))
+  (:require [cljs.spec.test.alpha :as stest]))
 
 (enable-console-print!)
 

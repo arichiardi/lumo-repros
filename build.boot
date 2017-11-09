@@ -1,13 +1,14 @@
 (def project 'speed-of-light)
 (def version "0.1.0-SNAPSHOT")
 
-(def dependencies '[[org.clojure/clojure "1.9.0-alpha15"]
-                    ;; [org.clojure/spec.alpha "0.1.123"]
-                    [org.clojure/test.check "0.10.0-alpha2"]])
-
 (def js-deps [])
 
-(def exclusions '[org.clojure/core.async])
+(def dependencies '[[org.clojure/test.check "0.10.0-alpha2"]])
+
+(def exclusions '[org.clojure/core.async
+                  org.clojure/google-closure-library
+                  com.google.javascript/closure-compiler-unshaded
+                  org.mozilla/rhino])
 
 (set-env! :source-paths #{"src"})
 
