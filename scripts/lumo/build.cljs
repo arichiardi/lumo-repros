@@ -2,16 +2,15 @@
          '[lumo.classpath :as cp]
          '[cljs.pprint :refer [pprint]])
 
-(enable-console-print!)
-
-(pprint (cp/classpath))
-
 (def compiler-opts
   {:main 'speed-of-light.core
    :output-to "out/speed_of_light.js"
-   :optimizations :none
-   :source-map true
+   :output-dir "out"
+   :optimizations :advanced
+   :source-map "out/speed_of_light.js.map"
    :target :nodejs
    :verbose true})
+
+(pprint compiler-opts)
 
 (api/build "src" compiler-opts)
