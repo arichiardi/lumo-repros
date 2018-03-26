@@ -1,1 +1,12 @@
-java -cp src:test:$(cat cp) clojure.main scripts/node_repl.clj
+#!/bin/sh
+
+set -eu
+
+port=5044
+
+cp=$(clojure -Srepro -Spath)
+
+export IS_LOCAL=true
+export NODE_ENV=dev
+
+lumo -sfK -c "$cp" -n $port

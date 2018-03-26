@@ -5,7 +5,8 @@
 
 (def dependencies '[[org.clojure/test.check "0.10.0-alpha2"]])
 
-(def exclusions '[org.clojure/core.async
+(def exclusions '[org.clojure/clojure
+                  org.clojure/core.async
                   org.clojure/google-closure-library
                   com.google.javascript/closure-compiler-unshaded
                   org.mozilla/rhino])
