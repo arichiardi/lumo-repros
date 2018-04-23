@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -eu
+
+lumo -sfK -e "(require '[lumo.closure :as cc] '[clojure.pprint :refer [pprint]]) (pprint (cc/index-node-modules-dir $(cat cljsc_opts.edn)))" > npm-deps.edn
