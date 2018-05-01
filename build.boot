@@ -11,7 +11,7 @@
                   com.google.javascript/closure-compiler-unshaded
                   org.mozilla/rhino])
 
-(set-env! :source-paths #{"src"})
+(set-env! :source-paths #{"src" "js"})
 
 (task-options!
  pom {:project     project

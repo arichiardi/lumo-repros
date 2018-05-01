@@ -1,0 +1,7 @@
+{:paths ["src"]
+ :deps {org.clojure/test.check {:mvn/version "0.10.0-alpha2" :exclusions [org.clojure/clojure]}
+        expound {:mvn/version "0.5.0"}
+        andare {:mvn/version "0.9.0" :exclusions [org.clojure/clojure]}
+        ;; necessary because we are compiling honeysql from ../
+        ;; transitive dependencies are not imported
+        net.cgrand/macrovich {:mvn/version "0.2.0" :exclusions [org.clojure/clojure org.clojure/clojurescript]}}}

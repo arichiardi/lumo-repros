@@ -6,4 +6,7 @@ if [[ ! -e "cp" ]] || [[ "cp" -ot "build.boot" ]]; then
     boot dump-cp
 fi
 
-lumo -K -c $(cat cp) scripts/lumo/build.cljs
+lumo_dir=~/git/lumo/target
+cljsc_opts=$(cat cljsc_opts.edn)
+
+lumo -c $(cat cp) scripts/lumo/build.cljs

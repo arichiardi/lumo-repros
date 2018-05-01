@@ -1,5 +1,8 @@
 #!/bin/sh
 
-set -eu
+set -xeu
 
-lumo -sfK -e "(require '[lumo.closure :as cc] '[clojure.pprint :refer [pprint]]) (pprint (cc/index-node-modules-dir $(cat cljsc_opts.edn)))" > npm-deps.edn
+lumo_dir=~/git/lumo/target
+cljsc_opts=$(cat cljsc_opts.edn)
+
+node "$lumo_dir/bundle.js" -c "$lumo_dir" -sfK -e "(require '[lumo.closure :as cc] '[clojure.pprint :refer [pprint]]) (pprint (cc/index-node-modules-dir $cljsc_opts))" > npm-deps.edn

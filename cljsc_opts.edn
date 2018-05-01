@@ -3,7 +3,13 @@
  :output-dir "out"
  :optimizations :none
  :verbose true
- :target :nodejs
- :install-deps false
- :npm-deps {:lodash.camelcase "4.3.0"
-            :lodash.kebabcase "4.1.1"}}
+ ;; :install-deps true
+ ;; :npm-deps {:can-promise "0.0.1"
+ ;; :left-pad "1.1.3"}
+ :foreign-libs [{:module-type :es6
+                 :file "js/es6_dep.js"
+                 :provides ["es6_calc"]}
+                {:module-type :es6
+                 :file "js/es6_default_hello.js"
+                 :provides ["es6_default_hello"]}]
+ :closure-warnings {:check-types :off}}

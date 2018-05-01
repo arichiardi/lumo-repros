@@ -1,14 +1,14 @@
 (ns speed-of-light.core
   "The entry point of this program"
-  (:require [cljs.spec.test.alpha :as stest]))
+  (:require can-promise))
 
 (enable-console-print!)
 
-(stest/instrument)
-
 (defn -main
   [& args]
-  (println "Hello world!")
+  (println "Hello - can I promise?" (can-promise))
   (process.exit 0))
 
 (set! *main-cli-fn* `-main)
+
+(-main)
